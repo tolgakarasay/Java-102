@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class MyList<T> {
     private T[] arr;
     private int capacity;
@@ -70,12 +68,70 @@ public class MyList<T> {
 
         for (int i = 0; i < size; i++) {
             str += this.arr[i];
-            if (i == size - 1) {
-                str += "]";
-            } else {
+            if (i != size - 1) {
                 str += ",";
             }
         }
+        str += "]";
         return str;
+    }
+
+    public int indexOf(T data) {
+        int i = 0;
+        while (i < size) {
+            if (this.arr[i] == data) {
+                return i;
+            }
+            i++;
+        }
+        return -1;
+    }
+
+    public int lastIndexOf(T data) {
+        int i = size - 1;
+        while (i >= 0) {
+            if (this.arr[i] == data) {
+                return i;
+            }
+            i--;
+        }
+        return -1;
+    }
+
+    public boolean isEmpty() {
+        if (size == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public T[] toArray() {
+        return this.arr;
+    }
+
+    public void clear() {
+        for (int i = 0; i < size; i++) {
+            this.arr[i] = null;
+        }
+        size = 0;
+    }
+
+    public MyList<T> subList(int start, int finish) {
+        MyList<T> temp = new MyList(finish - start + 1);
+        for (int i = start; i <= finish; i++) {
+            temp.add(this.arr[i]);
+        }
+        return temp;
+    }
+
+    public boolean contains(T data) {
+        int i = 0;
+        while (i < size) {
+            if (this.arr[i] == data) {
+                return true;
+            }
+            i++;
+        }
+        return false;
     }
 }
