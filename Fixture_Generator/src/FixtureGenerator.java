@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class FixtureGenerator {
     private int numOfTeams;
-    private ArrayList<String> teamList = new ArrayList<>();;
+    private ArrayList<String> teamList = new ArrayList<>();
 
     public FixtureGenerator(int numOfTeams) {
         this.numOfTeams = numOfTeams;
